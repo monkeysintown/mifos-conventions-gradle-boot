@@ -1,0 +1,17 @@
+plugins {
+    id "org.mifos.conventions.gradle.base.java"
+    id "org.mifos.conventions.gradle.base.java.test.spring"
+}
+
+dependencies {
+    constraints {
+        implementation "org.mifos.commons.boot:mifos-commons-boot-starter-reactive:0.1.0-SNAPSHOT"
+        implementation "org.mifos.commons.boot:mifos-commons-boot-starter-imperative:0.1.0-SNAPSHOT"
+    }
+
+    annotationProcessor "org.projectlombok:lombok"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}

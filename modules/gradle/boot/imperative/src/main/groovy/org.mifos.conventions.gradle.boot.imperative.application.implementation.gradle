@@ -1,0 +1,10 @@
+plugins {
+    id "org.mifos.conventions.gradle.boot.core.application.implementation"
+}
+
+dependencies {
+    // TODO: this is just to make the applications work for now; remove later
+    implementation "com.h2database:h2"
+
+    testImplementation "org.mifos.commons.boot:mifos-commons-boot-testing:0.1.0-SNAPSHOT"
+}

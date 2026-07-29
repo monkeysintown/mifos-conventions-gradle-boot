@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral().content {
+            excludeModule("javax.media", "jai_core")
+        }
+        gradlePluginPortal()
+        maven {
+            url = uri("https://central.sonatype.com/repository/maven-snapshots")
+        }
+        maven {
+            url = uri("https://mifos.jfrog.io/artifactory/mifosx-gradle-local")
+        }
+    }
+
+    dependencies {
+        classpath "org.mifos.conventions:mifos-conventions-gradle-base-template:0.1.0-SNAPSHOT"
+    }
+}
+
+apply plugin: "org.mifos.conventions.gradle.base.layout"
+
+rootProject.name = "mifos-conventions-gradle-boot"
+
+mifos {
+    project {
+        groupId = "org.mifos.conventions"
+        description = "Mifos Initiative - Conventions - Gradle - Boot"
+        basePackage = "org.mifos.conventions.boot"
+        inceptionYear = "2026"
+    }
+    developers {
+        "vidakovic" {
+            firstname = "Aleksandar"
+            lastname = "Vidakovic"
+            email = "aleks@mifos.org"
+            timezone = "UTC+2"
+            roles = ["developer", "architect"]
+        }
+    }
+}
+
+include(":mifos-conventions-gradle-boot-core")
+project(":mifos-conventions-gradle-boot-core").projectDir = file("${rootDir}/modules/gradle/boot/core")
+include(":mifos-conventions-gradle-boot-imperative")
+project(":mifos-conventions-gradle-boot-imperative").projectDir = file("${rootDir}/modules/gradle/boot/imperative")
+include(":mifos-conventions-gradle-boot-reactive")
+project(":mifos-conventions-gradle-boot-reactive").projectDir = file("${rootDir}/modules/gradle/boot/reactive")
+include(":mifos-conventions-gradle-boot-layout")
+project(":mifos-conventions-gradle-boot-layout").projectDir = file("${rootDir}/modules/gradle/boot/layout")

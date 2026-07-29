@@ -1,0 +1,26 @@
+plugins {
+    id "org.mifos.conventions.gradle.base.plugin"
+}
+
+description = "Mifos Initiative - Gradle Conventions - Project - Boot - Layout"
+
+dependencies {
+    api project(":mifos-conventions-gradle-boot-imperative")
+    api project(":mifos-conventions-gradle-boot-reactive")
+    api "org.mifos.conventions:mifos-conventions-gradle-base-java:0.1.0-SNAPSHOT"
+}
+
+gradlePlugin {
+    plugins {
+        MifosProjectBootLayoutPlugin {
+            id = "org.mifos.conventions.gradle.boot.layout"
+            implementationClass = "org.mifos.conventions.gradle.boot.layout.MifosGradleBootLayoutPlugin"
+        }
+    }
+}
+
+dependencies {
+    implementation libs.commons.io
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+}
