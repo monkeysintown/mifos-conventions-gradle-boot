@@ -1,0 +1,8 @@
+plugins {
+    id "org.mifos.conventions.gradle.boot.core.starter"
+}
+
+dependencies {
+    implementation "org.mifos.commons.boot:mifos-commons-boot-starter-reactive:0.1.0-SNAPSHOT"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+}
